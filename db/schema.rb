@@ -11,7 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123221136) do
+ActiveRecord::Schema.define(version: 20160123230140) do
+
+  create_table "commodities", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "galactic_average"
+    t.integer  "category"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "system_objects", force: :cascade do |t|
+    t.integer  "system_id"
+    t.string   "name"
+    t.integer  "object_type"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "system_objects", ["system_id"], name: "index_system_objects_on_system_id"
 
   create_table "systems", force: :cascade do |t|
     t.string   "name"
