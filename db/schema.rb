@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123234048) do
+ActiveRecord::Schema.define(version: 20160123235614) do
 
   create_table "cmdrs", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20160123234048) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  create_table "ships", force: :cascade do |t|
+    t.integer  "cmdr_id"
+    t.boolean  "is_current",     default: false
+    t.string   "model"
+    t.integer  "cargo_capacity"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+  end
+
+  add_index "ships", ["cmdr_id"], name: "index_ships_on_cmdr_id"
 
   create_table "system_objects", force: :cascade do |t|
     t.integer  "system_id"
