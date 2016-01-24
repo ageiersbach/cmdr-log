@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124154238) do
+ActiveRecord::Schema.define(version: 20160124154753) do
 
   create_table "cargo_items", force: :cascade do |t|
     t.integer  "commodity_id"
@@ -41,8 +41,9 @@ ActiveRecord::Schema.define(version: 20160124154238) do
   create_table "entries", force: :cascade do |t|
     t.integer  "cmdr_id"
     t.integer  "system_object_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "activity",         default: 0
   end
 
   add_index "entries", ["cmdr_id"], name: "index_entries_on_cmdr_id"
