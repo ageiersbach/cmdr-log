@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124003437) do
+ActiveRecord::Schema.define(version: 20160124153201) do
 
   create_table "cargo_items", force: :cascade do |t|
     t.integer  "commodity_id"
@@ -38,25 +38,25 @@ ActiveRecord::Schema.define(version: 20160124003437) do
     t.datetime "updated_at",       null: false
   end
 
-  create_table "extracted_resources", force: :cascade do |t|
-    t.integer  "commodity_id"
-    t.integer  "mining_entry_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
-  add_index "extracted_resources", ["commodity_id"], name: "index_extracted_resources_on_commodity_id"
-  add_index "extracted_resources", ["mining_entry_id"], name: "index_extracted_resources_on_mining_entry_id"
-
-  create_table "mining_entries", force: :cascade do |t|
+  create_table "entries", force: :cascade do |t|
     t.integer  "cmdr_id"
     t.integer  "system_object_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
 
-  add_index "mining_entries", ["cmdr_id"], name: "index_mining_entries_on_cmdr_id"
-  add_index "mining_entries", ["system_object_id"], name: "index_mining_entries_on_system_object_id"
+  add_index "entries", ["cmdr_id"], name: "index_entries_on_cmdr_id"
+  add_index "entries", ["system_object_id"], name: "index_entries_on_system_object_id"
+
+  create_table "extracted_resources", force: :cascade do |t|
+    t.integer  "commodity_id"
+    t.integer  "entry_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "extracted_resources", ["commodity_id"], name: "index_extracted_resources_on_commodity_id"
+  add_index "extracted_resources", ["entry_id"], name: "index_extracted_resources_on_entry_id"
 
   create_table "ships", force: :cascade do |t|
     t.integer  "cmdr_id"

@@ -1,4 +1,4 @@
-class MiningEntry < ActiveRecord::Base
+class Entry < ActiveRecord::Base
   belongs_to :cmdr
   belongs_to :system_object
 
