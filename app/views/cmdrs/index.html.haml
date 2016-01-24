@@ -2,6 +2,6 @@
   Welcome to the CMDR Log. Select a CMDR or create a new one to get started.
 %div.cmdrs-list.expanded.row
   %div.small-6.small-centered.columns
-    %a.button.large.radius Annasazi
-    %a.button.large.radius Gendibal
-    %a.button.large.radius + Add
+    - @cmdrs.each do |cmdr|
+      = link_to cmdr.name, cmdr_path(cmdr), class: "button large radius"
+    = link_to "+ Add", new_cmdr_path, class: "button large radius"

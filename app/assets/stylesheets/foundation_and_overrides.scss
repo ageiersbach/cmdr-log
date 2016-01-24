@@ -49,3 +49,15 @@
 //
 // @include motion-ui-transitions;
 // @include motion-ui-animations;
+
+.top-bar {
+  color: $primary-color;
+
+  .top-bar-title {
+    font-size: $global-font-size * 1.75;
+    margin-left: 12px;
+  }
+  .button {
+    color: $white;
+  }
+}

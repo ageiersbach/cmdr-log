@@ -54,7 +54,7 @@ $warning-color: #ffae00;
 $alert-color: #ec5840;
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
+$dark-gray: #262626;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $black;
@@ -492,15 +492,15 @@ $show-header-for-stacked: false;
 // --------
 
 $tab-margin: 0;
-$tab-background: $white;
-$tab-background-active: $light-gray;
-$tab-border: $light-gray;
+$tab-background: $black;
+$tab-background-active: $dark-gray;
+$tab-border: $black;
 $tab-item-color: foreground($tab-background, $primary-color);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;
 $tab-expand-max: 6;
-$tab-content-background: $white;
-$tab-content-border: $light-gray;
+$tab-content-background: $dark-gray;
+$tab-content-border: $dark-gray;
 $tab-content-color: foreground($tab-background, $primary-color);
 $tab-content-padding: 1rem;
 
@@ -541,6 +541,6 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-background: $black;
 $topbar-link-color: $primary-color;
 $topbar-input-width: 200px;

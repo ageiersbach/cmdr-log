@@ -1,0 +1,11 @@
+%ul.tabs#example-tabs{data: { tabs: true } }
+  %li.tabs-title.is-active
+    %a{href: "#panel1", aria_selected: true} Entries
+  %li.tabs-title
+    %a{href: "#panel2"} Systems
+
+%div.tabs-content{data: { tabs_content: "example-tabs" } }
+  %div.tabs-panel.is-active.clearfix#panel1
+    = link_to 'Add entry', new_cmdr_entry_path(current_commander), class: 'button float-right'
+  %div.tabs-panel.clearfix#panel2
+    %a.button.float-right{href: '#'} Add system

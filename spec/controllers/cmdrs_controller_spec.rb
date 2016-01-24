@@ -18,5 +18,34 @@ describe CmdrsController do
       get :index
       expect(assigns(:cmdrs)).to eq(cmdrs)
     end
+
+    it "sets the session store for current_cmdr to nil" do
+      session[:current_cmdr_id] = 2
+      get :index
+      expect(session[:current_cmdr_id]).to be_nil
+    end
+  end
+
+  describe "#show" do
+    let(:cmdr) { create(:cmdr) }
+    it "is successful" do
+      get :show, id: cmdr.id
+      expect(response).to be_success
+    end
+
+    it "sets the session store for the given cmdr" do
+      expect(session[:current_cmdr_id]).to be_nil #sanity
+      get :show, id: cmdr.id
+      expect(session[:current_cmdr_id]).to eq(cmdr.id)
+    end
+
+    it "assigns the cmdr" do
+      get :show, id: cmdr.id
+      expect(assigns(:current_commander)).to eq(cmdr)
+    end
+  end
+
+  describe "#new" do
+
   end
 end
