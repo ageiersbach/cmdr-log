@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125080011) do
+ActiveRecord::Schema.define(version: 20160125080333) do
 
   create_table "cmdrs", force: :cascade do |t|
     t.string   "name"
@@ -36,10 +36,12 @@ ActiveRecord::Schema.define(version: 20160125080011) do
     t.string   "type",         null: false
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "ship_id"
   end
 
   add_index "commodity_exchanges", ["commodity_id"], name: "index_commodity_exchanges_on_commodity_id"
   add_index "commodity_exchanges", ["entry_id"], name: "index_commodity_exchanges_on_entry_id"
+  add_index "commodity_exchanges", ["ship_id"], name: "index_commodity_exchanges_on_ship_id"
 
   create_table "entries", force: :cascade do |t|
     t.integer  "cmdr_id"
