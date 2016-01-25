@@ -1,4 +1,3 @@
-- resources = ['Painite', 'Palladium', 'Osmium', 'Beryllium', 'Gallite', 'Bertrandite', 'Indite', 'Coltan', 'Urannite', 'Lepidolite', 'Rutile', 'Bauxite', 'Platinum', 'Gold', 'Silver', 'Indium', 'Gallium', 'Tantalum', 'Uranium', 'Lithium', 'Titanium', 'Cobalt', 'Copper', 'Aluminum' ]
 %div.row
   %div.small-10.small-centered.columns
     %div.entry-container
@@ -20,6 +19,6 @@
 %div.row
   %div.small-10.small-centered.columns
     %h2 Add Resources
-    - resources.each do |resource|
-      %a.entry-add-item= resource
+    - Commodity.mineable.each do |resource|
+      %a.entry-add-item= resource.name
 
