@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160124154753) do
+ActiveRecord::Schema.define(version: 20160125002927) do
 
   create_table "cargo_items", force: :cascade do |t|
     t.integer  "commodity_id"
@@ -37,6 +37,19 @@ ActiveRecord::Schema.define(version: 20160124154753) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
+
+  create_table "commodity_exchanges", force: :cascade do |t|
+    t.integer  "commodity_id"
+    t.integer  "entry_id"
+    t.integer  "price"
+    t.integer  "quantity"
+    t.string   "type",         null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "commodity_exchanges", ["commodity_id"], name: "index_commodity_exchanges_on_commodity_id"
+  add_index "commodity_exchanges", ["entry_id"], name: "index_commodity_exchanges_on_entry_id"
 
   create_table "entries", force: :cascade do |t|
     t.integer  "cmdr_id"
