@@ -1,15 +1,4 @@
-%div.row
-  %div.small-10.small-centered.columns
-    %div.entry-container
-      %div.clearfix
-        %span.entry-title
-          Mining at Guathiti 6
-      %ul
-        %li 1 T Painite
-        %li 2 T Palladium
-      %div.entry-summary
-        %span.entry-summary-label Total value (by Gal.Avg):
-        %span.entry-summary-content 49,000 CR
+= render 'mining_entry', entry: @entry
 
 %div.row
   %div.small-10.small-centered.columns
@@ -20,5 +9,5 @@
   %div.small-10.small-centered.columns
     %h2 Add Resources
     - Commodity.mineable.each do |resource|
-      %a.entry-add-item= resource.name
+      %a.entry-add-item{data: resource.html_element_data }= resource.name
 
