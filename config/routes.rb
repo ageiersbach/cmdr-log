@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
   root 'cmdrs#index'
-  resources :cmdrs
+  resources :cmdrs do
+    resources :entries
+  end
 end

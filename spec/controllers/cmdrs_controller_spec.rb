@@ -20,7 +20,7 @@ describe CmdrsController do
     end
 
     it "sets the session store for current_cmdr to nil" do
-      session[:current_cmdr_id] = 2
+      session[:current_cmdr_id] = cmdrs.first.id
       get :index
       expect(session[:current_cmdr_id]).to be_nil
     end

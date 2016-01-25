@@ -1,0 +1,11 @@
+%div.row
+  %div.large-8.large-centered.columns
+    = form_for [current_commander, @entry] do |f|
+      = f.label :system_object_id, "System Object"
+      = f.select :system_object_id, SystemObject.all.collect {|s| [s.name, s.id] }
+
+      = f.label :activity
+      = f.select :activity, Entry.activities.keys
+
+      = link_to "Cancel", cmdr_path(current_commander), class: "button secondary"
+      = f.submit "Continue", class: "button"
