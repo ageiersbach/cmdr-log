@@ -11,6 +11,7 @@ class CmdrsController < ApplicationController
 
   def new
     @cmdr = Cmdr.new
+    @cmdr.ships.build
   end
 
   def create
@@ -25,6 +26,6 @@ class CmdrsController < ApplicationController
   private
 
   def cmdr_params
-    params.require(:cmdr).permit(:name)
+    params.require(:cmdr).permit(:name, :balance, ships_attributes: [:model, :cargo_capacity])
   end
 end

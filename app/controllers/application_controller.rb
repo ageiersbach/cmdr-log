@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :session_layout
   helper_method :current_commander
+  helper_method :current_ship
 
   def current_commander
     @current_commander ||=
@@ -12,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   def current_commander=(cmdr)
     @current_commander = cmdr
+  end
+
+  def current_ship
+    current_commander.ships.first
   end
 
   private

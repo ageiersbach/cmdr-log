@@ -4,5 +4,15 @@
       = f.label :name
       = f.text_field :name
 
+      = f.label :balance
+      = f.number_field :balance
+
+      = f.fields_for :ships do |sf|
+        = sf.label :model
+        = sf.select :model, Shipyard.models
+
+        = sf.label :cargo_capacity
+        = sf.number_field :cargo_capacity
+
       = link_to "Cancel", root_path, class: "button secondary"
       = f.submit "Engage!", class: "button"

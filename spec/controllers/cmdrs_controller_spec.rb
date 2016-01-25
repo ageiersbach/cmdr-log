@@ -60,7 +60,9 @@ describe CmdrsController do
   describe "#create" do
     context "with valid params" do
       let(:valid_params) do
-        { cmdr: { name: 'Gendibal' } }
+        { cmdr: { name: 'Gendibal', ships_attributes:
+          { "0" => { model: "Asp Explorer", cargo_capacity: '45' } }
+        } }
       end
 
       it "redirects to @cmdr" do
@@ -72,6 +74,12 @@ describe CmdrsController do
         expect {
           post :create, valid_params
         }.to change{ Cmdr.count }.from(0).to(1)
+      end
+
+      it "creates a new Ship" do
+        expect {
+          post :create, valid_params
+        }.to change{ Ship.count }.from(0).to(1)
       end
     end
 

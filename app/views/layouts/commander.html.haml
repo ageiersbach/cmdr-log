@@ -16,11 +16,11 @@
           %ul.menu
             %li
               %a
-                Sidewinder
-                %small 42/50
+                = current_ship.model
+                %small.badge.secondary= current_ship.cargo_capacity
             %li
               %a
-                1,000
+                =current_commander.balance
                 %small CR
 
     = yield
