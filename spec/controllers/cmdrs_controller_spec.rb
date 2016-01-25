@@ -46,6 +46,48 @@ describe CmdrsController do
   end
 
   describe "#new" do
+    it "initializes a new Cmdr" do
+      get :new
+      expect(assigns(:cmdr)).to be_a_new Cmdr
+    end
 
+    it "is successful" do
+      get :new
+      expect(response).to be_success
+    end
+  end
+
+  describe "#create" do
+    context "with valid params" do
+      let(:valid_params) do
+        { cmdr: { name: 'Gendibal' } }
+      end
+
+      it "redirects to @cmdr" do
+        post :create, valid_params
+        expect(response).to redirect_to(cmdr_path(assigns(:cmdr)))
+      end
+
+      it "creates a new Cmdr" do
+        expect {
+          post :create, valid_params
+        }.to change{ Cmdr.count }.from(0).to(1)
+      end
+    end
+
+    context "with invalid params" do
+      let(:invalid_params) { { cmdr: { master_rank: true } } }
+
+      it "renders the new template" do
+        post :create, invalid_params
+        expect(response).to render_template("new")
+      end
+
+      it "does not create a new Cmdr" do
+        expect {
+          post :create, invalid_params
+        }.to_not change{ Cmdr.count }
+      end
+    end
   end
 end

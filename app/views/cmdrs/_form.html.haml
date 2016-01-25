@@ -1,0 +1,8 @@
+%div.row
+  %div.large-8.large-centered.columns
+    = form_for @cmdr do |f|
+      = f.label :name
+      = f.text_field :name
+
+      = link_to "Cancel", root_path, class: "button secondary"
+      = f.submit "Engage!", class: "button"

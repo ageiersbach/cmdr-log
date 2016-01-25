@@ -1,2 +1,25 @@
-%h1 Entries#show
-%p Find me in app/views/entries/show.html.haml
+- resources = ['Painite', 'Palladium', 'Osmium', 'Beryllium', 'Gallite', 'Bertrandite', 'Indite', 'Coltan', 'Urannite', 'Lepidolite', 'Rutile', 'Bauxite', 'Platinum', 'Gold', 'Silver', 'Indium', 'Gallium', 'Tantalum', 'Uranium', 'Lithium', 'Titanium', 'Cobalt', 'Copper', 'Aluminum' ]
+%div.row
+  %div.small-10.small-centered.columns
+    %div.entry-container
+      %div.clearfix
+        %span.entry-title
+          Mining at Guathiti 6
+      %ul
+        %li 1 T Painite
+        %li 2 T Palladium
+      %div.entry-summary
+        %span.entry-summary-label Total value (by Gal.Avg):
+        %span.entry-summary-content 49,000 CR
+
+%div.row
+  %div.small-10.small-centered.columns
+    = link_to "Abort", cmdr_entry_path(current_commander, @entry), method: :delete, data: { confirm: "Are you sure?" }, class: "button secondary"
+    = link_to "Done", cmdr_path(current_commander), class: "button"
+
+%div.row
+  %div.small-10.small-centered.columns
+    %h2 Add Resources
+    - resources.each do |resource|
+      %a.entry-add-item= resource
+

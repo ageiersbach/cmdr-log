@@ -1,0 +1,28 @@
+@import 'settings';
+
+.entry-container {
+  background-color: $dark-gray;
+  border-radius: $global-radius;
+  padding: 1.25rem 1.5rem;
+}
+
+.entry-summary-label {
+  font-size: 75%;
+}
+
+.entry-summary-content {
+  color: $primary-color;
+}
+
+.entry-summary {
+  border: solid 1px $light-gray;
+  border-radius: $global-radius;
+  padding: 0.5rem;
+}
+
+.entry-add-item {
+  line-height: 3;
+  border: solid 1px $primary-color;
+  border-radius: $global-radius;
+  padding: 0.5rem;
+}
