@@ -1,7 +1,14 @@
 // Place all the styles related to the cmdrs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$lighterBlack: #0D0D0D;
+
 .cmdrs-list {
   padding-top: 20px;
   text-align: center;
+}
+
+.tabs-content .entry-container {
+  background-color: $lighterBlack;
+  margin-bottom: 1rem;
 }

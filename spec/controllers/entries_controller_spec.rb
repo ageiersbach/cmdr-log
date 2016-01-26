@@ -85,4 +85,24 @@ describe EntriesController do
       end
     end
   end
+
+  describe "#update" do
+    let!(:entry)       { create(:entry, cmdr: cmdr) }
+    let(:valid_params) { { id: entry.id, entry: { is_closed: true }, cmdr_id: entry.cmdr_id } }
+
+    context "with valid params" do
+      it "changes the entry" do
+        expect(entry.is_closed).to eq(false)
+        put :update, valid_params
+        entry.reload
+        expect(entry.is_closed).to eq(true)
+      end
+
+      it "redirects to the cmdrs path" do
+        put :update, valid_params
+        expect(response).to redirect_to(cmdr_path(entry.cmdr))
+      end
+    end
+
+  end
 end

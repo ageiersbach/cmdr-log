@@ -5,7 +5,7 @@ class ExtractedResourcesController < ApplicationController
     @extracted_resource.quantity += 1 unless @extracted_resource.new_record?
     @extracted_resource.ship = current_ship
     if @extracted_resource.save
-      render partial: '/entries/mining_entry', locals: { entry: @extracted_resource.entry } and return
+      render partial: '/shared/mining_entry', locals: { entry: @extracted_resource.entry } and return
     else
       render @extracted_resource.errors.to_json, status: :unprocessable_entity and return
     end

@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe ExtractedResourcesController do
+  let!(:cmdr) { create(:cmdr) }
+  let!(:ship) { create(:ship, cmdr: cmdr) }
+
+  before do
+    @request.session['current_cmdr_id'] = cmdr.id
+  end
 
   describe "POST #create" do
   let!(:entry)     { create(:entry) }

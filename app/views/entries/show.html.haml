@@ -1,10 +1,10 @@
 %div.mining-entry
-  = render 'mining_entry', entry: @entry
+  = render '/shared/mining_entry', entry: @entry
 
 %div.row
   %div.small-10.small-centered.columns
     = link_to "Abort", cmdr_entry_path(current_commander, @entry), method: :delete, data: { confirm: "Are you sure?" }, class: "button secondary"
-    = link_to "Done", cmdr_path(current_commander), class: "button"
+    = link_to "Done", mark_entry_done_button(current_commander, @entry), method: :put, class: "button"
 
 %div.row
   %div.small-10.small-centered.columns

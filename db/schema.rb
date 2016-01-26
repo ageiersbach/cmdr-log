@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125080333) do
+ActiveRecord::Schema.define(version: 20160126133424) do
 
   create_table "cmdrs", force: :cascade do |t|
     t.string   "name"
@@ -46,9 +46,10 @@ ActiveRecord::Schema.define(version: 20160125080333) do
   create_table "entries", force: :cascade do |t|
     t.integer  "cmdr_id"
     t.integer  "system_object_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.integer  "activity",         default: 0
+    t.boolean  "is_closed",        default: false, null: false
   end
 
   add_index "entries", ["cmdr_id"], name: "index_entries_on_cmdr_id"
