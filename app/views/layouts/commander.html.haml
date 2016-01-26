@@ -10,7 +10,7 @@
 
   %body
     %div.top-bar
-      %div.top-bar-title= current_commander.name
+      %div.top-bar-title= link_to current_commander.name, cmdr_path(current_commander)
       %div
         %div.top-bar-left
           %ul.menu
