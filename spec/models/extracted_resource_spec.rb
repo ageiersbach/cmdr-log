@@ -17,4 +17,11 @@ describe ExtractedResource do
       expect(ExtractedResource.find(resource.id).quantity).to eq(3)
     end
   end
+
+  describe "#commodity_name" do
+    let!(:painite)  { create(:commodity, category: "minerals", name: "Painite") }
+    let!(:resource) { create(:extracted_resource, commodity: painite) }
+
+    it { expect(resource.commodity_name).to eq("Painite") }
+  end
 end

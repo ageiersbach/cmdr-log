@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :entries
   end
 
-  resources :extracted_resources, only: [:create, :destroy], defaults: { format: :json }
+  resources :extracted_resources, only: [:create, :destroy]
 end
