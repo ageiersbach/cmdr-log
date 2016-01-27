@@ -15,9 +15,9 @@
         %div.top-bar-left
           %ul.menu
             %li
-              %a
-                = current_ship.model
-                %small.badge.secondary= current_ship.cargo_capacity
+              = link_to current_ship.model, cmdr_ship_path(current_commander, current_ship)
+            %li
+              %small.badge.secondary= current_ship.cargo_capacity
             %li
               %a
                 =current_commander.balance

@@ -1,0 +1,11 @@
+%ul.tabs#ships-tabs{data: { tabs: true } }
+  %li.tabs-title.is-active
+    %a{href: "#cargo", aria_selected: true} Cargo
+  %li.tabs-title
+    %a{href: "#outfitting"} Outfitting
+
+%div.tabs-content{data: { tabs_content: "ships-tabs" } }
+  %div.tabs-panel.is-active.clearfix#cargo
+    = render 'cargo'
+  %div.tabs-panel.clearfix#outfitting
+    Coming soon!
