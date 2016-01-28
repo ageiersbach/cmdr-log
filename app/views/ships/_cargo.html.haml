@@ -7,10 +7,14 @@
         %th
         %th
       %tbody
-        %tr
-          %td Painite
-          %td 2 T
-          %td
-            %a Jettison
-          %td
-            %a Sell
+        - @ship.cargo_items.sort_by(&:commodity_name).each do |item|
+          = render 'sell_item_form', item: item
+          %tr
+            %td=item.commodity_name
+            %td
+              = item.quantity
+              T
+            %td
+              %a Jettison
+            %td
+              %a(data-open="sell_#{item.id}") Sell
