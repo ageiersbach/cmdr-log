@@ -7,7 +7,7 @@
 %div.tabs-content{data: { tabs_content: "example-tabs" } }
   %div.tabs-panel.is-active.clearfix#panel1
     = link_to 'Add entry', new_cmdr_entry_path(current_commander), class: 'button float-right'
-    - current_commander.entries.each do |e|
-      = render 'shared/mining_entry', entry: e
+    - @mining_entries.each do |e|
+      = render 'shared/mining_entry', mining_entry: e
   %div.tabs-panel.clearfix#panel2
     %a.button.float-right{href: '#'} Add system

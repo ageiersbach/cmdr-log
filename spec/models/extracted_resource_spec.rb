@@ -5,7 +5,6 @@ describe ExtractedResource do
   it { is_expected.to belong_to :entry }
   it { is_expected.to validate_presence_of :commodity }
   it { is_expected.to validate_presence_of :entry }
-  it { is_expected.to validate_presence_of :quantity }
 
   describe "quantity" do
     it "is 1 on new" do

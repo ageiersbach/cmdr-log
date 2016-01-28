@@ -1,6 +1,8 @@
 class EntriesController < ApplicationController
+
   def show
     @entry = Entry.find(params[:id])
+    @mining_entry = MiningEntryPresenter.new(@entry)
   end
 
   def new

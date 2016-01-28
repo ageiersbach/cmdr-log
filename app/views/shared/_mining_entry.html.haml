@@ -3,11 +3,13 @@
     %div.entry-container
       %div.clearfix
         %span.entry-title
-          = entry.is_closed? ? "Mined" : "Mining"
-          @ Guathiti 6
+          = mining_entry.descriptive_heading
       %ul
-        - entry.extracted_resources.each do |resource|
-          %li="#{resource.quantity} T #{resource.commodity_name}"
+        - mining_entry.extracted_resources.each do |resource|
+          %li
+            = resource.amount_extracted
+            T
+            = resource.commodity_name
       %div.entry-summary
         %span.entry-summary-label Total value (by Gal.Avg):
         %span.entry-summary-content 49,000 CR
