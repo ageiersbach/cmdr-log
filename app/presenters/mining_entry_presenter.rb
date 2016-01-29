@@ -6,6 +6,7 @@ class MiningEntryPresenter
   #   %li
   #     = resource.amount_extracted
   #     = resource.name
+  #     = "( #{resource.sum_galactic_average} )"
   #     = link_to "X", extracted_resources_path(resource.last_id)
 
   def initialize(entry)
@@ -16,13 +17,19 @@ class MiningEntryPresenter
     @entry.is_closed? ? "Mined @ #{mining_location}" : "Mining @ #{mining_location}"
   end
 
+  def estimated_value
+    extracted_resources.map(&:sum_galactic_average).inject(0, :+)
+  end
+
   def extracted_resources
-    @entry.extracted_resources
-      .joins(:commodity)
-      .select('commodities.name as name')
-      .select('count(commodity_id) as amount_extracted')
-      .select(:commodity_id)
-      .group(:commodity_id)
+    @extracted_resources ||=
+      @entry.extracted_resources
+        .joins(:commodity)
+        .select('commodities.name as name')
+        .select('count(commodity_id) as amount_extracted')
+        .select('sum(commodities.galactic_average) as sum_galactic_average')
+        .select(:commodity_id)
+        .group(:commodity_id)
   end
 
   private

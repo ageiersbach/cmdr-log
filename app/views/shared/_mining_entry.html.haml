@@ -12,5 +12,5 @@
             = resource.commodity_name
       %div.entry-summary
         %span.entry-summary-label Total value (by Gal.Avg):
-        %span.entry-summary-content 49,000 CR
+        %span.entry-summary-content= number_with_delimiter(mining_entry.estimated_value)
 
