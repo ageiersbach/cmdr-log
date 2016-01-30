@@ -1,3 +1,3 @@
 class PurchasedCommodity < StoredCommodity
-  validates :price, :quantity, presence: true
+  validates :buy_price, presence: true
 end

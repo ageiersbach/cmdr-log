@@ -5,6 +5,5 @@ describe PurchasedCommodity do
   it { is_expected.to belong_to :entry }
   it { is_expected.to validate_presence_of :commodity }
   it { is_expected.to validate_presence_of :entry }
-  it { is_expected.to validate_presence_of :price }
-  it { is_expected.to validate_presence_of :quantity }
+  it { is_expected.to validate_presence_of :buy_price }
 end
