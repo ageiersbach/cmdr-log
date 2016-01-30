@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   end
 
   resources :extracted_resources, only: [:create, :destroy]
+  resources :stored_commodities, only: [:update]
 end
