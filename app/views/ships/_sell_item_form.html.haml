@@ -1,0 +1,12 @@
+%div.reveal.large(data-reveal id="sell_#{item.id}")
+  = form_for SoldCommodity.new do |f|
+    %div.row
+      %div.small-8.small-centered.columns
+        = f.label :quantity
+        = f.number_field :quantity, in: 1..item.quantity, default: 1
+      
+        = f.label :price
+        = f.number_field :price, min: 0
+        %a.button.secondary(data-close) Close
+        = f.submit "Sell", class: "button"
+   
