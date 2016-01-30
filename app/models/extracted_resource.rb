@@ -1,4 +1,4 @@
-class ExtractedResource < CommodityExchange
+class ExtractedResource < StoredCommodity
   after_initialize :set_quantity_to_one, if: :new_record?
   delegate :name, to: :commodity, prefix: true
 

@@ -1,3 +1,3 @@
-class PurchasedCommodity < CommodityExchange
+class PurchasedCommodity < StoredCommodity
   validates :price, :quantity, presence: true
 end

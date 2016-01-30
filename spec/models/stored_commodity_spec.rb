@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe CommodityExchange do
+describe StoredCommodity do
   it { is_expected.to belong_to :commodity }
   it { is_expected.to belong_to :entry }
   it { is_expected.to belong_to :ship }

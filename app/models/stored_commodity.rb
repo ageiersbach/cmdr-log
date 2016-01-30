@@ -1,4 +1,4 @@
-class CommodityExchange < ActiveRecord::Base
+class StoredCommodity < ActiveRecord::Base
   belongs_to :commodity
   belongs_to :entry
   belongs_to :ship

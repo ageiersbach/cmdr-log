@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126133424) do
+ActiveRecord::Schema.define(version: 20160130201534) do
 
   create_table "cmdrs", force: :cascade do |t|
     t.string   "name"
@@ -27,21 +27,6 @@ ActiveRecord::Schema.define(version: 20160126133424) do
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
   end
-
-  create_table "commodity_exchanges", force: :cascade do |t|
-    t.integer  "commodity_id"
-    t.integer  "entry_id"
-    t.integer  "price"
-    t.integer  "quantity"
-    t.string   "type",         null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "ship_id"
-  end
-
-  add_index "commodity_exchanges", ["commodity_id"], name: "index_commodity_exchanges_on_commodity_id"
-  add_index "commodity_exchanges", ["entry_id"], name: "index_commodity_exchanges_on_entry_id"
-  add_index "commodity_exchanges", ["ship_id"], name: "index_commodity_exchanges_on_ship_id"
 
   create_table "entries", force: :cascade do |t|
     t.integer  "cmdr_id"
@@ -65,6 +50,21 @@ ActiveRecord::Schema.define(version: 20160126133424) do
   end
 
   add_index "ships", ["cmdr_id"], name: "index_ships_on_cmdr_id"
+
+  create_table "stored_commodities", force: :cascade do |t|
+    t.integer  "commodity_id"
+    t.integer  "entry_id"
+    t.integer  "price"
+    t.integer  "quantity"
+    t.string   "type",         null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "ship_id"
+  end
+
+  add_index "stored_commodities", ["commodity_id"], name: "index_stored_commodities_on_commodity_id"
+  add_index "stored_commodities", ["entry_id"], name: "index_stored_commodities_on_entry_id"
+  add_index "stored_commodities", ["ship_id"], name: "index_stored_commodities_on_ship_id"
 
   create_table "system_objects", force: :cascade do |t|
     t.integer  "system_id"
