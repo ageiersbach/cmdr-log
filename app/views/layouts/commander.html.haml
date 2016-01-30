@@ -17,7 +17,7 @@
             %li
               = link_to current_ship.model, cmdr_ship_path(current_commander, current_ship)
             %li
-              %small.badge.secondary= current_ship.cargo_capacity
+              %small.badge.secondary= (current_ship.cargo_capacity - current_ship.cargo_items.count)
             %li
               %a
                 =current_commander.balance
