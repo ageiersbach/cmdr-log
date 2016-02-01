@@ -18,5 +18,10 @@ describe ShipsController do
       get :show, id: ship.id, cmdr_id: cmdr.id
       expect(assigns(:ship)).to eq(ship)
     end
+
+    it "assigns @cargo_items" do
+      get :show, id: ship.id, cmdr_id: cmdr.id
+      expect(assigns(:cargo_items)).to be_an_instance_of CargoItemsPresenter
+    end
   end
 end

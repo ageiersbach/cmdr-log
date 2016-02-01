@@ -7,4 +7,11 @@ describe Entry do
   it { is_expected.to validate_presence_of  :cmdr }
   it { is_expected.to validate_presence_of  :activity }
   it { is_expected.to validate_presence_of :system_object }
+
+  describe "scopes" do
+    let!(:entries) { create_list(:entry, 4) }
+    subject(:reverse_cron) { Entry.reverse_cron }
+
+    it { expect(reverse_cron).to eq(entries.reverse) }
+  end
 end

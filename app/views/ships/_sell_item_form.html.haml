@@ -1,13 +1,20 @@
-%div.reveal.large(data-reveal id="sell_#{item.id}")
-  -# TODO: Change to a better form
-  = form_for StoredCommodity.new do |f|
+%div.reveal.small(data-reveal id="sell_#{item.id}")
+  %h2.text-center
+    Sell
+    = item.name
+  = form_tag sold_items_path do
     %div.row
       %div.small-8.small-centered.columns
-        = f.label :quantity
-        = f.number_field :quantity, in: 1..item.quantity, default: 1
+        = hidden_field_tag "ship_id", item.ship_id
+        = hidden_field_tag "commodity_id", item.commodity_id
+        = label_tag "amount"
+        = number_field_tag "amount", 1, in: 1..item.amount
 
-        = f.label :price
-        = f.number_field :price, min: 0
+        %div.row.collapse
+          = label_tag "sell_as"
+          = select_tag "sell_as", options_for_select([['Per Unit', 'per_unit'], ['Total', 'total']])
+          = label_tag "sell_price"
+          = number_field_tag "sell_price", min: 0
         %a.button.secondary(data-close) Close
-        = f.submit "Sell", class: "button"
+        = submit_tag "Sell", class: "button"
 

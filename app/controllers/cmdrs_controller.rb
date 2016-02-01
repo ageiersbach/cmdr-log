@@ -7,7 +7,7 @@ class CmdrsController < ApplicationController
   def show
     current_commander = Cmdr.find(params[:id])
     session[:current_cmdr_id] = current_commander.id
-    @mining_entries = current_commander.entries.map{|e| MiningEntryPresenter.new(e)}
+    @mining_entries = current_commander.entries.reverse_cron.map{|e| MiningEntryPresenter.new(e)}
   end
 
   def new

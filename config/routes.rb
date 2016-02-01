@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'cmdrs#index'
+  post '/sold_items' => 'sold_items#create'
+
 
   resources :cmdrs do
     resources :entries
@@ -7,5 +9,4 @@ Rails.application.routes.draw do
   end
 
   resources :extracted_resources, only: [:create, :destroy]
-  resources :stored_commodities, only: [:update]
 end

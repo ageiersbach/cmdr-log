@@ -4,15 +4,29 @@
       %thead
         %th Item
         %th Qt.
+        %th Value
         %th
         %th
       %tbody
-        - @ship.cargo_items.sort_by(&:commodity_name).each do |item|
-         =# render 'sell_item_form', item: item
+        - @cargo_items.cargo_items.each do |item|
+          = render 'sell_item_form', item: item
           %tr
-            %td=item.commodity_name
-            %td 1 T
+            %td=item.name
+            %td
+              = item.amount
+              T
+            %td= number_with_delimiter(item.sum_galactic_average)
             %td
               %a Jettison
             %td
               %a(data-open="sell_#{item.id}") Sell
+      %tfoot
+        %tr
+          %td
+          %td
+            =@cargo_items.total_cargo
+            T
+          %td=number_with_delimiter(@cargo_items.estimated_value)
+          %td
+          %td
+

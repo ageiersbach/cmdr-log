@@ -18,6 +18,10 @@ module StoringCommodities
       per_unit? ? @fields.amount * @fields.sell_price : @fields.sell_price
     end
 
+    def new_balance(balance=0)
+      balance += total_profit
+    end
+
     def update
       return unless valid?
       stored_commodities.update_all(ship_id: nil, sell_price: price_per_unit)
@@ -34,7 +38,7 @@ module StoringCommodities
     end
 
     def validate_amount
-      amount = stored_commodities.count
+      amount = stored_commodities.to_a.size
       if amount < @fields.amount
         @fields.errors[:amount] << "must be between 1 and #{amount}"
       end
