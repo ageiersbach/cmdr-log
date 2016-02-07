@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.4'
 
+gem 'active_hash'
 gem 'foundation-rails'
 gem 'haml-rails'
 gem 'jbuilder', '~> 2.0'

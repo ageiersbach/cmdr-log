@@ -1,5 +1,5 @@
 %div.mining-entry
-  = render '/shared/mining_entry', mining_entry: @mining_entry
+  = render @entry.activity_template, presenter: @entry.as_presenter
 
 %div.row
   %div.small-10.small-centered.columns
@@ -7,8 +7,5 @@
     = link_to "Done", mark_entry_done_button(current_commander, @entry), method: :put, class: "button"
 
 %div.row
-  %div.small-10.small-centered.columns
-    %h2 Add Resources
-    - Commodity.mineable.each do |resource|
-      = link_to resource.name, create_extracted_resource(resource, @entry),
-          method: :post, remote: true, class: 'entry-add-item', data: {type: :html}
+  = yield :entry_actions unless @entry.is_closed?
+

@@ -4,7 +4,8 @@
       = f.label :system_object_id, "System Object"
       = f.select :system_object_id, SystemObject.all.collect {|s| [s.name, s.id] }
 
-      = f.hidden_field :activity, value: "mine"
+      = f.label :activity_id, "Entry type"
+      = f.select :activity_id, Activity.all.map {|a| [a.name, a.id] }
 
       = link_to "Cancel", cmdr_path(current_commander), class: "button secondary"
-      = f.submit "Mine!", class: "button"
+      = f.submit "Continue", class: "button"

@@ -53,7 +53,7 @@ describe EntriesController do
     let(:system_object) { create(:system_object) }
     context "with valid params" do
       let(:valid_params) do
-        { entry: { system_object_id: system_object.id, activity: "mine" } }
+        { entry: { system_object_id: system_object.id, activity_id: "1" } }
       end
 
       it "redirects to entry#show" do
@@ -70,7 +70,7 @@ describe EntriesController do
 
     context "with invalid params" do
       let(:invalid_params) do
-        { entry: { system_object_id: '', activity: "mine" } }
+        { entry: { system_object_id: '', activity_id: 1 } }
       end
 
       it "renders :new" do

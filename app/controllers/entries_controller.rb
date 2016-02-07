@@ -2,7 +2,6 @@ class EntriesController < ApplicationController
 
   def show
     @entry = Entry.find(params[:id])
-    @mining_entry = MiningEntryPresenter.new(@entry)
   end
 
   def new
@@ -37,7 +36,7 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-    params.require(:entry).permit(:system_object_id, :activity, :is_closed)
+    params.require(:entry).permit(:system_object_id, :activity_id, :is_closed)
   end
 
 end

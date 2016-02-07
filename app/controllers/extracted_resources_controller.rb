@@ -4,9 +4,8 @@ class ExtractedResourcesController < ApplicationController
     @extracted_resource = ExtractedResource.create(extracted_resources_params)
     @extracted_resource.ship = current_ship
     if @extracted_resource.save
-      entry = MiningEntryPresenter.new(@extracted_resource.entry)
-      render partial: '/shared/mining_entry',
-      locals: { mining_entry: entry } and return
+      render partial: @extracted_resource.entry.activity_template,
+      locals: { presenter: @extracted_resource.entry.as_presenter } and return
     else
       render @extracted_resource.errors.to_json, status: :unprocessable_entity and return
     end
