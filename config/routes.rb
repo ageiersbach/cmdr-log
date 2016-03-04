@@ -1,6 +1,10 @@
+require 'resque/server'
+
 Rails.application.routes.draw do
   root 'cmdrs#index'
   post '/sold_items' => 'sold_items#create'
+
+  mount Resque::Server.new, at: "/resque"
 
 
   resources :cmdrs do
