@@ -1,4 +1,13 @@
 .navbar {
   padding: 6px;
   height: 32px;
+
+  a {
+    color: $fg-base;
+    text-decoration: none;
+  }
+
+  .devise-nav-link {
+    margin-right: 181px;
+  }
 }

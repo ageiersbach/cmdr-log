@@ -1,0 +1,11 @@
+<% content_for :log_in_link do %>
+  <% if commander_signed_in? %>
+    <h2>
+      <%= link_to('Sign out', destroy_commander_session_path, method: :delete) %>
+    </h2>
+  <% else %>
+    <h2>
+      <%= link_to('Sign in', new_commander_session_path)  %>
+    </h2>
+  <% end %>
+<% end %>
