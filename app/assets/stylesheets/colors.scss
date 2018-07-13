@@ -1,5 +1,18 @@
 $black: #000;
 $fg-base: #D97B23;
+$fg-secondary: #7687dd;
 
-$link-color: #3dc380;
-$link-color-visited: #357d5c;
+$link-color: $fg-secondary;
+$link-color-visited: darken($fg-secondary, 15%);
+$link-color-hover: lighten($fg-secondary, 10%);
+
+$border-color: lighten($black, 10%);
+$table-head-color: desaturate($fg-base, 50%);
+$table-color: desaturate($fg-base, 40%);
+$table-highlight-color: lighten($table-color, 25%);
+$table-highlight-bg: $black;
+
+
+//unused but possibly good colors?
+$green: #3dc380;
+$blue: #444c76;

@@ -23,6 +23,10 @@ h1,h2,h3,h4,h5,h6 {
 a {
   color: $link-color;
 
+  &:hover {
+    color: $link-color-hover;
+  }
+
   &:visited {
     color: $link-color-visited;
   }
@@ -40,8 +44,59 @@ form {
   }
 }
 
+table {
+  margin-top: 6px;
+  border-collapse: collapse;
+  border: 1px solid $border-color;
+  width: 100%;
+  color: $table-color;
+
+  th, td {
+    padding: 6px 12px;
+    text-align: left;
+  }
+
+  th:first-child {
+    border-left: none;
+    border-top-left-radius: 6px;
+  }
+  th:last-child {
+    border-right: none;
+    border-top-right-radius: 6px;
+  }
+
+  tr.highlight-row {
+    color: $table-highlight-color;
+    background-color: $table-highlight-bg;
+  }
+
+  thead tr {
+    background-color: $border-color;
+    color: $table-head-color;
+  }
+
+  tbody {
+    td {
+      border-bottom: 1px solid $border-color;
+      //border-left: 1px solid $border-color;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
 .content {
   // page-wrap level styles go here
+}
+
+.panel {
+  max-width: 90%;
+  padding: 6px 12px;
+  margin: 0 auto;
+  margin-top: 12px;
+  margin-bottom: 12px;
 }
 
 .pull-left {

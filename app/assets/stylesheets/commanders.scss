@@ -1,3 +1,15 @@
 // Place all the styles related to the commanders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.galactic-avg {
+  font-style:italic;
+}
+
+.commodity {
+  margin-bottom: 20px;
+
+  h4 {
+    margin-left: 8px;
+    color: lighten($fg-base, 10%);
+  }
+}
