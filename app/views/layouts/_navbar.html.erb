@@ -1,0 +1,15 @@
+<div class="navbar">
+  <div class="pull-left">
+    <h1>
+      <%= link_to("Commander Log", root_path) %>
+    </h1>
+  </div>
+  <div class="pull-right">
+    <% if commander_signed_in? %>
+      <%= link_to('Logout', destroy_commander_session_path, method: :delete) %>
+    <% else %>
+      <%= link_to('Login', new_commander_session_path)  %>
+    <% end %>
+  </div>
+</div>
+<div class="clearfix"></div>
