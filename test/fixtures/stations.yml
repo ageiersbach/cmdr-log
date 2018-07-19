@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  system: one
+  name: Dubyago Port
+  construction: Coriolis
+  distance_from_star_ls: 10.644590
+
+two:
+  system: two
+  name: Reilly Hub
+  construction: Orbis Starport
+  distance_from_star_ls: 171.0
