@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  x: 1.5
+  'y': 0
+  z: -1.2222
+
+two:
+  name: MyString
+  x: -3.44449
+  'y': 1.111119
+  z: 0
