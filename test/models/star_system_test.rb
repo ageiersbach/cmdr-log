@@ -1,10 +1,10 @@
 require 'test_helper'
 
-class SystemTest < ActiveSupport::TestCase
+class StarSystemTest < ActiveSupport::TestCase
   test "validations" do
-    s = System.new
+    s = StarSystem.new
     assert !s.valid?
-    s.name = "Test System"
+    s.name = "Test StarSystem"
     s.x = 0.0
     s.y = -1.22229
     s.z = 130.0000

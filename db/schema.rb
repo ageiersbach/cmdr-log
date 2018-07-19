@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_215707) do
+ActiveRecord::Schema.define(version: 2018_07_19_223438) do
 
   create_table "commanders", force: :cascade do |t|
     t.string "name"
@@ -30,23 +30,23 @@ ActiveRecord::Schema.define(version: 2018_07_19_215707) do
     t.index ["reset_password_token"], name: "index_commanders_on_reset_password_token", unique: true
   end
 
-  create_table "stations", force: :cascade do |t|
-    t.integer "system_id"
-    t.string "name"
-    t.string "construction"
-    t.float "distance_from_star_ls"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["system_id"], name: "index_stations_on_system_id"
-  end
-
-  create_table "systems", force: :cascade do |t|
+  create_table "star_systems", force: :cascade do |t|
     t.string "name"
     t.float "x"
     t.float "y"
     t.float "z"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "stations", force: :cascade do |t|
+    t.integer "star_system_id"
+    t.string "name"
+    t.string "construction"
+    t.float "distance_from_star_ls"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["star_system_id"], name: "index_stations_on_star_system_id"
   end
 
 end
