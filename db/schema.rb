@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_195406) do
+ActiveRecord::Schema.define(version: 2018_07_21_201120) do
 
   create_table "cargo_items", force: :cascade do |t|
     t.integer "commander_id"
@@ -46,6 +46,23 @@ ActiveRecord::Schema.define(version: 2018_07_21_195406) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "missions", force: :cascade do |t|
+    t.integer "commander_id"
+    t.integer "commodity_id"
+    t.integer "station_id"
+    t.string "name"
+    t.datetime "expires_at"
+    t.integer "reward"
+    t.integer "target"
+    t.integer "game_mission_id"
+    t.boolean "wing", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commander_id"], name: "index_missions_on_commander_id"
+    t.index ["commodity_id"], name: "index_missions_on_commodity_id"
+    t.index ["station_id"], name: "index_missions_on_station_id"
   end
 
   create_table "star_systems", force: :cascade do |t|

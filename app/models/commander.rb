@@ -3,6 +3,7 @@ class Commander < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :location, polymorphic: true
   has_many :cargo_items
+  has_many :missions
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
