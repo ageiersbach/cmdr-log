@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_19_223438) do
+ActiveRecord::Schema.define(version: 2018_07_21_161344) do
 
   create_table "commanders", force: :cascade do |t|
     t.string "name"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 2018_07_19_223438) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
+    t.string "location_type"
+    t.integer "location_id"
     t.index ["email"], name: "index_commanders_on_email", unique: true
+    t.index ["location_type", "location_id"], name: "index_commanders_on_location_type_and_location_id"
     t.index ["reset_password_token"], name: "index_commanders_on_reset_password_token", unique: true
   end
 
