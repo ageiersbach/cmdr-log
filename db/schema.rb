@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_21_161344) do
+ActiveRecord::Schema.define(version: 2018_07_21_194335) do
 
   create_table "commanders", force: :cascade do |t|
     t.string "name"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 2018_07_21_161344) do
     t.index ["email"], name: "index_commanders_on_email", unique: true
     t.index ["location_type", "location_id"], name: "index_commanders_on_location_type_and_location_id"
     t.index ["reset_password_token"], name: "index_commanders_on_reset_password_token", unique: true
+  end
+
+  create_table "commodities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "star_systems", force: :cascade do |t|
