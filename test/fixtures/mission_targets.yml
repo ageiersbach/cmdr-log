@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cargo_item: one
+  mission: one
+
+two:
+  cargo_item: two
+  mission: two
