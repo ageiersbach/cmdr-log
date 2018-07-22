@@ -27,4 +27,18 @@ class CommanderTest < ActiveSupport::TestCase
 
     assert_equal(c.star_system, star_systems(:two))
   end
+
+  test "location set to Sol on initialize when no location" do
+    c = Commander.new
+    c.name = "FarGazer"
+    c.email = "fg@example.com"
+    c.password = "12345678"
+    assert_equal(c.location.name, "Sol")
+    assert_equal(c.location_type, "StarSystem")
+  end
+
+  test "location not set to Sol when initialized to something else" do
+    c = Commander.new(location: stations(:one))
+    assert_equal(c.location.name, "Dubyago Port")
+  end
 end
