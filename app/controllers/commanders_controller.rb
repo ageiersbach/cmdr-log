@@ -1,10 +1,7 @@
 class CommandersController < ApplicationController
-  #before_action :authenticate_commander!
-
-  def index ; end
+  before_action :authenticate_commander!
 
   def show
-    authenticate_commander!
-    @commander = Commander.find(params[:id])
+    @commander = current_commander
   end
 end
