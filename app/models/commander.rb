@@ -4,6 +4,7 @@ class Commander < ApplicationRecord
   belongs_to :location, polymorphic: true
   has_many :cargo_items
   has_many :missions
+  has_secure_token
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -13,6 +14,13 @@ class Commander < ApplicationRecord
 
   def star_system
     location_type == "StarSystem" ? location : location.star_system
+  end
+
+  # overrides Rails method provided by `has_secure_token` to
+  # simultaneously set the token token_expiration
+  def regenerate_token
+    update!(token: self.class.generate_unique_secure_token,
+            token_expiration: Time.now.utc + 20.minutes)
   end
 
   private
