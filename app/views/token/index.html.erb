@@ -1,10 +1,24 @@
-<% if @commander.active_token? %>
-  <p><%= @commander.email %>, this is your token:
-    <span class="huge"><%= @commander.token %>
-  </p>
-<% else %>
-  <p>
-    You do not have a valid token.
-    <%= button_to "Click here to get token", action: "create" %>
-  </p>
-<% end %>
+
+<div class="panel">
+  <% if @commander.active_token? %>
+    This token is set to expire in <%= distance_of_time_in_words_to_now(@commander.token_expiration) %>:
+    <div class="huge"><%= @commander.token %></div>
+
+    <p>
+      Copy the token and enter it when prompted by the command-line
+      interface.
+    </p>
+
+    <p>
+      When the token expires, it will have to be regenerated for the cli to work.
+      The token can be re-generated at any time.
+    </p>
+
+  <% else %>
+    You do not have a valid token. Click the button below to get a token.
+  <% end %>
+</div>
+
+<div class="panel"
+  <%= button_to "Get New Token", {action: "create"}, { class: "primary"}  %>
+</div>

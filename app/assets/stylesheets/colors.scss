@@ -1,10 +1,23 @@
 $black: #000;
 $fg-base: #D97B23;
+$fg-base-bright: #ff7b00;
 $fg-secondary: #7687dd;
+$green: #14a020;
+$gray: #2b2b2b;
 
 $link-color: $fg-secondary;
 $link-color-visited: darken($fg-secondary, 15%);
 $link-color-hover: lighten($fg-secondary, 10%);
+
+$button-color-default-bg: $gray;
+$button-color-default-hover-bg: lighten($gray, 10%);
+$button-color-default: $fg-base-bright;
+$button-color-default-hover: lighten($fg-base-bright, 12%);
+
+$button-color-primary-bg: $green;
+$button-color-primary-hover-bg: lighten($green, 10%);
+$button-color-primary: $black;
+$button-color-primary-hover: $black;
 
 $border-color: lighten($black, 10%);
 $table-head-color: desaturate($fg-base, 50%);
@@ -14,5 +27,4 @@ $table-highlight-bg: $black;
 
 
 //unused but possibly good colors?
-$green: #3dc380;
 $blue: #444c76;

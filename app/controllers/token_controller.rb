@@ -9,7 +9,7 @@ class TokenController < ApplicationController
     @commander = current_commander
     if @commander.regenerate_token
       flash[:success] = "Token generated"
-      redirect_to "index"
+      redirect_to action: "index"
     end
   end
 

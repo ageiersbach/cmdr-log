@@ -20,6 +20,10 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'Eurocaps';
 }
 
+p {
+  margin: 12px 0;
+}
+
 a {
   color: $link-color;
 
@@ -34,6 +38,35 @@ a {
 
 button,input {
   padding: 6px;
+}
+
+button,input[type="submit"] {
+  background-color: $button-color-default-bg;
+  color: $button-color-default;
+  font-weight: bold;
+  border-color: lighten($button-color-default-bg, 10%);
+  border-style: outset;
+  border-width: 3px;
+  border-radius: 5px;
+  cursor:pointer;
+
+  &:hover {
+    background-color: $button-color-default-hover-bg;
+    border-color: lighten($button-color-default-hover-bg, 10%);
+    color: $button-color-default-hover;
+  }
+
+  &.primary {
+    background-color: $button-color-primary-bg;
+    border-color: lighten($button-color-primary-bg, 10%);
+    color: $button-color-primary;
+
+    &:hover {
+      background-color: $button-color-primary-hover-bg;
+      border-color: lighten($button-color-primary-hover-bg, 10%);
+      color: $button-color-primary-hover;
+    }
+  }
 }
 
 form {

@@ -1,6 +1,7 @@
 .navbar {
   padding: 6px;
   height: 32px;
+  color: $green;
 
   .navbar-left {
     position: relative;
@@ -24,11 +25,11 @@
   }
 
   a {
-    color: $fg-base;
+    color: $green;
     text-decoration: none;
 
     &:hover {
-      color: lighten($fg-base, 20%);
+      color: lighten($green, 20%);
     }
   }
 
