@@ -2,9 +2,34 @@
   padding: 6px;
   height: 32px;
 
+  .navbar-left {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 50%;
+  }
+
+  .navbar-right {
+    position: absolute;
+    right: 0;
+    top: 8px;
+    width: 50%;
+    text-align: right;
+  }
+
+  .navbar-right .nav-item {
+    display: inline-block;
+    position: relative;
+    padding: 0 6px;
+  }
+
   a {
     color: $fg-base;
     text-decoration: none;
+
+    &:hover {
+      color: lighten($fg-base, 20%);
+    }
   }
 
   .devise-nav-link {
