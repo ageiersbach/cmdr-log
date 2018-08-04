@@ -16,11 +16,15 @@ class Commander < ApplicationRecord
     location_type == "StarSystem" ? location : location.star_system
   end
 
+  def active_token?
+    token && Time.now.utc < token_expiration
+  end
+
   # overrides Rails method provided by `has_secure_token` to
   # simultaneously set the token token_expiration
   def regenerate_token
     update!(token: self.class.generate_unique_secure_token,
-            token_expiration: Time.now.utc + 20.minutes)
+            token_expiration: Time.now.utc + 1.day)
   end
 
   private

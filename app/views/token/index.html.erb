@@ -1,0 +1,10 @@
+<% if @commander.active_token? %>
+  <p><%= @commander.email %>, this is your token:
+    <span class="huge"><%= @commander.token %>
+  </p>
+<% else %>
+  <p>
+    You do not have a valid token.
+    <%= button_to "Click here to get token", action: "create" %>
+  </p>
+<% end %>

@@ -41,4 +41,13 @@ class CommanderTest < ActiveSupport::TestCase
     c = Commander.new(location: stations(:one))
     assert_equal(c.location.name, "Dubyago Port")
   end
+
+  test "active_token?" do
+    c = commanders(:one)
+    assert !c.active_token?
+
+    c.regenerate_token
+
+    assert c.active_token?
+  end
 end
