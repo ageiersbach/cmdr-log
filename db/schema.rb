@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_05_232049) do
+ActiveRecord::Schema.define(version: 2018_08_05_233255) do
 
   create_table "cargo_items", force: :cascade do |t|
     t.integer "commander_id"
@@ -49,6 +49,16 @@ ActiveRecord::Schema.define(version: 2018_08_05_232049) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "mission_log_targets", force: :cascade do |t|
+    t.datetime "expiration"
+    t.integer "station_id"
+    t.integer "mission_log_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mission_log_id"], name: "index_mission_log_targets_on_mission_log_id"
+    t.index ["station_id"], name: "index_mission_log_targets_on_station_id"
   end
 
   create_table "mission_logs", force: :cascade do |t|
