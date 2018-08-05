@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_30_110409) do
+ActiveRecord::Schema.define(version: 2018_08_05_232049) do
 
   create_table "cargo_items", force: :cascade do |t|
     t.integer "commander_id"
@@ -51,30 +51,14 @@ ActiveRecord::Schema.define(version: 2018_07_30_110409) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mission_targets", force: :cascade do |t|
-    t.integer "cargo_item_id"
-    t.integer "mission_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cargo_item_id"], name: "index_mission_targets_on_cargo_item_id"
-    t.index ["mission_id"], name: "index_mission_targets_on_mission_id"
-  end
-
-  create_table "missions", force: :cascade do |t|
+  create_table "mission_logs", force: :cascade do |t|
+    t.datetime "timestamp"
+    t.string "description"
+    t.integer "ed_mission_id"
     t.integer "commander_id"
-    t.integer "commodity_id"
-    t.integer "station_id"
-    t.string "name"
-    t.datetime "expires_at"
-    t.integer "reward"
-    t.integer "target"
-    t.integer "game_mission_id"
-    t.boolean "wing", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["commander_id"], name: "index_missions_on_commander_id"
-    t.index ["commodity_id"], name: "index_missions_on_commodity_id"
-    t.index ["station_id"], name: "index_missions_on_station_id"
+    t.index ["commander_id"], name: "index_mission_logs_on_commander_id"
   end
 
   create_table "star_systems", force: :cascade do |t|
