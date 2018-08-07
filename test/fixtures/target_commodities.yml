@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commodity: one
+  mission_log_target: one
+  count: 1
+
+two:
+  commodity: two
+  mission_log_target: two
+  count: 1

@@ -10,4 +10,17 @@ class MissionLogTest < ActiveSupport::TestCase
 
     assert ml.valid?
   end
+
+  test "dependent destroy" do
+    target_commodity = target_commodities(:one)
+    target_commodity.save!
+    log_target = target_commodity.mission_log_target
+    log = log_target.mission_log
+
+    log.destroy
+
+    assert log.destroyed?
+    assert log_target.destroyed?
+    assert target_commodity.destroyed?
+  end
 end
