@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_06_131027) do
+ActiveRecord::Schema.define(version: 2018_08_07_025708) do
 
   create_table "cargo_items", force: :cascade do |t|
     t.integer "commander_id"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2018_08_06_131027) do
     t.datetime "updated_at", null: false
     t.index ["commander_id"], name: "index_cargo_items_on_commander_id"
     t.index ["commodity_id"], name: "index_cargo_items_on_commodity_id"
+  end
+
+  create_table "cargo_logs", force: :cascade do |t|
+    t.datetime "timestamp"
+    t.integer "commodity_id"
+    t.integer "commander_id"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commander_id"], name: "index_cargo_logs_on_commander_id"
+    t.index ["commodity_id"], name: "index_cargo_logs_on_commodity_id"
   end
 
   create_table "commanders", force: :cascade do |t|

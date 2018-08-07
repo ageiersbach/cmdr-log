@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  timestamp: 2018-08-06 22:57:09
+  commander: one
+  commodity: one
+  count: 1
+
+two:
+  timestamp: 2018-08-06 22:57:09
+  commander: two
+  commodity: two
+  count: 1
