@@ -1,8 +1,5 @@
 class Commander < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
   belongs_to :location, polymorphic: true
-  has_many :cargo_items
   has_many :cargo_logs
   has_many :mission_logs
   has_secure_token
