@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_004805) do
+ActiveRecord::Schema.define(version: 2018_08_14_010133) do
 
   create_table "cargo_logs", force: :cascade do |t|
     t.datetime "timestamp"
@@ -37,12 +37,9 @@ ActiveRecord::Schema.define(version: 2018_08_14_004805) do
     t.datetime "last_sign_in_at"
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.string "location_type"
-    t.integer "location_id"
     t.string "token"
     t.datetime "token_expiration"
     t.index ["email"], name: "index_commanders_on_email", unique: true
-    t.index ["location_type", "location_id"], name: "index_commanders_on_location_type_and_location_id"
     t.index ["reset_password_token"], name: "index_commanders_on_reset_password_token", unique: true
     t.index ["token"], name: "index_commanders_on_token", unique: true
   end
