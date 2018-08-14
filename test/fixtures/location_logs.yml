@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commander: one
+  location: one (StarSystem)
+  timestamp: 2018-08-13 20:48:05
+
+two:
+  commander: two
+  timestamp: 2018-08-13 20:48:05
+  location: one (Station)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_14_004016) do
+ActiveRecord::Schema.define(version: 2018_08_14_004805) do
 
   create_table "cargo_logs", force: :cascade do |t|
     t.datetime "timestamp"
@@ -51,6 +51,17 @@ ActiveRecord::Schema.define(version: 2018_08_14_004016) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "location_logs", force: :cascade do |t|
+    t.integer "commander_id"
+    t.string "location_type"
+    t.integer "location_id"
+    t.datetime "timestamp"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commander_id"], name: "index_location_logs_on_commander_id"
+    t.index ["location_type", "location_id"], name: "index_location_logs_on_location_type_and_location_id"
   end
 
   create_table "mission_log_targets", force: :cascade do |t|
