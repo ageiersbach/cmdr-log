@@ -1,24 +1,13 @@
-# README
+# CMDR Log
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+An Elite Dangerous event logger.
 
-Things you may want to cover:
+Works with [cmdr-log-cli](https://github.com/ageiersbach/cmdr-log-cli),
+which reads the player log and sends the data to the rails app.
 
-* Ruby version
+# Set up
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+_This is a work in progress_. Currently the applications would require a rust development environment
+as well as a rails environment on your local machine. Eventually the rails app
+can live anywhere, such as Heroku, while the cli tool would be downloadable as
+an executable.  
